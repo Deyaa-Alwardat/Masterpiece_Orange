@@ -159,7 +159,7 @@
           .join("");
       const card = (
         e,
-      ) => `<article class="card ex-card" data-spot><div class="ex-head">${NX.userAvatar ? NX.userAvatar(e) : NX.avatar(e.name)}<div><h3>${esc(e.name)}</h3><span class="tag acc">${esc(needLabel(e.skills && e.skills[0]))}</span></div>${heart(e)}</div>`
+      ) => `<article class="card ex-card" data-spot><div class="ex-head">${NX.userAvatar ? NX.userAvatar(e) : NX.avatar(e.name)}<div><h3>${esc(e.name)}</h3><span class="tag acc">${esc(needLabel(e.skills && e.skills[0]))}</span></div>${heart(e)}</div>
         <div class="row2">${rate(e.rating)}<span class="muted" style="font-size:.85rem">${e.n ? e.n + " sessions" : "New expert"}</span></div>
         <div class="ex-card-meta"><span class="ex-modes">${e.modes.map((m) => MODES[m].en).join(" · ")}</span></div>
         <div class="ex-foot"><div><b>${NX.jod(e.rate)}</b><span>/ session</span></div><button class="btn btn-ghost btn-sm" data-consult="${e.id}" type="button">Book session</button></div></article>`;

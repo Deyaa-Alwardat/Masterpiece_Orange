@@ -45,6 +45,10 @@
     admin: { label: "Admin", login: "login", home: "admin-dashboard", accent: "amber" },
   };
 
+  /** NEXUS logo mark (inline SVG) — shared by navbar, footer and portal shell */
+  NX.LOGO =
+    '<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M10 38V10L38 38V10" fill="none" stroke="currentColor" stroke-width="4.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="38" r="6.6" fill="#7C5CFF"/><circle cx="10" cy="10" r="6.6" fill="#FFC24B"/><circle cx="38" cy="38" r="6.6" fill="#29D6F0"/><circle cx="38" cy="10" r="6.6" fill="#FF5E9C"/></svg>';
+
   /** Query-string helper */
   NX.qs = (k) => new URLSearchParams(location.search).get(k);
 })();

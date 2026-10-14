@@ -7,8 +7,7 @@
   if (!host) return;
   var compact = host.getAttribute("data-compact") === "true";
   var P = NX.page;
-  var LOGO =
-    '<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M10 38V10L38 38V10" fill="none" stroke="currentColor" stroke-width="4.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="38" r="6.6" fill="#7C5CFF"/><circle cx="10" cy="10" r="6.6" fill="#FFC24B"/><circle cx="38" cy="38" r="6.6" fill="#29D6F0"/><circle cx="38" cy="10" r="6.6" fill="#FF5E9C"/></svg>';
+  var LOGO = NX.LOGO;
 
   var html = `
 <footer class="foot${compact ? " compact" : ""}" id="footer">
