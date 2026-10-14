@@ -1,0 +1,37 @@
+/* NEXUS — company booking: desk picker (reuses .dk tiles from the inventory page) */
+.desk-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(46px, 1fr));
+  gap: 0.45rem;
+}
+.dk {
+  aspect-ratio: 1;
+  border-radius: 12px;
+  font: 600 0.85rem var(--f-head);
+  border: 1.5px solid var(--cyan);
+  color: var(--cyan-t);
+  background: var(--cyan-bg);
+  transition: 0.15s;
+}
+.dk.social {
+  border-color: var(--violet);
+  color: var(--violet-t);
+  background: rgba(124, 92, 255, 0.14);
+}
+.dk.busy,
+.dk:disabled {
+  border-color: var(--amber);
+  color: var(--amber-t);
+  background: var(--amber-bg);
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+.dk.picked {
+  background: var(--grad-btn);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 8px 20px -8px rgba(91, 80, 255, 0.9);
+}
+.dk:not(:disabled):hover {
+  transform: translateY(-2px);
+}

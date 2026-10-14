@@ -1,0 +1,608 @@
+
+/* NEXUS — Expert Calendar */
+.g-main {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(300px, 0.85fr);
+  gap: 1.25rem;
+  align-items: start;
+}
+
+.g-main > *,
+.stack {
+  min-width: 0;
+}
+
+.stack {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.g-main .panel.card {
+  padding: clamp(1rem, 2vw, 1.4rem);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background:
+    radial-gradient(ellipse at top right, var(--accent-bg), transparent 48%),
+    var(--panel);
+  box-shadow: 0 12px 36px rgb(0 0 0 / 10%);
+}
+
+.g-main .panel-h {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.g-main .panel-h h2,
+.g-main .panel-h h3 {
+  margin: 0;
+  letter-spacing: -0.035em;
+}
+
+.g-main .panel-h h2 {
+  font-size: clamp(1.15rem, 2vw, 1.45rem);
+}
+
+.g-main .panel-h h3 {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.g-main .acts {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.g-main .icon-btn {
+  display: inline-grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--fill);
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s, transform 0.2s;
+}
+
+.g-main .icon-btn:hover {
+  border-color: var(--accent);
+  background: var(--accent-bg);
+  transform: translateY(-1px);
+}
+
+.g-main .btn {
+  cursor: pointer;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.g-main .btn:hover {
+  transform: translateY(-1px);
+}
+
+.g-main .cal-head,
+.g-main .cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: clamp(3px, 0.65vw, 8px);
+}
+
+.g-main .cal-head {
+  margin: 1.25rem 0 0.6rem;
+  text-align: center;
+  color: var(--dim);
+  font: 600 0.72rem var(--f-head);
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.g-main .cal-cell {
+  position: relative;
+  min-width: 0;
+  min-height: 72px;
+  aspect-ratio: 1 / 0.88;
+  padding: 0.55rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.3rem;
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  background: var(--fill);
+  color: var(--text);
+  text-align: left;
+  transition: border-color 0.2s, background 0.2s, transform 0.2s;
+}
+
+.g-main button.cal-cell {
+  cursor: pointer;
+}
+
+.g-main button.cal-cell:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.g-main .cal-cell.blank {
+  border-color: transparent;
+  background: transparent;
+}
+
+.g-main .cal-cell b {
+  font: 600 0.88rem var(--f-head);
+}
+
+.g-main .cal-cell.today {
+  border-color: var(--accent);
+  box-shadow: inset 0 0 0 1px var(--accent);
+}
+
+.g-main .cal-cell.today b {
+  color: var(--accent-t);
+}
+
+.g-main .cal-cell.sel {
+  border-color: var(--accent);
+  background: var(--accent-bg);
+  box-shadow: inset 0 0 0 1px var(--accent);
+}
+
+.g-main .cal-cell.off:not(.sel) {
+  opacity: 0.55;
+}
+
+.g-main .cal-cell.has-sessions::after {
+  content: "";
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--cyan);
+}
+
+.g-main .cal-dots {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.g-main .cal-dots i,
+.g-main .cal-legend i {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  flex: 0 0 7px;
+  border-radius: 50%;
+  background: var(--dim);
+}
+
+.g-main .cal-dots i.confirmed,
+.g-main .cal-legend i.confirmed {
+  background: var(--cyan);
+}
+
+.g-main .cal-dots i.requested,
+.g-main .cal-legend i.requested {
+  background: var(--amber);
+}
+
+.g-main .cal-dots i.completed,
+.g-main .cal-legend i.completed {
+  background: var(--mint);
+}
+
+.g-main .cal-legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.8rem 1.1rem;
+  margin-top: 1.1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.77rem;
+}
+
+.g-main .cal-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.g-main .cal-legend .hint {
+  flex-basis: 100%;
+  line-height: 1.6;
+}
+
+.g-main .calendar-summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem;
+  margin-bottom: 1.25rem;
+}
+
+.g-main .calendar-stat {
+  min-width: 0;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--panel);
+}
+
+.g-main .calendar-stat .stat-label {
+  display: block;
+  margin-bottom: 0.6rem;
+  color: var(--muted);
+  font-size: 0.77rem;
+  line-height: 1.5;
+}
+
+.g-main .calendar-stat .stat-value {
+  display: block;
+  font: 700 clamp(1.35rem, 2.3vw, 1.9rem) var(--f-head);
+  letter-spacing: -0.04em;
+}
+
+.g-main .calendar-stat .stat-note {
+  display: block;
+  margin-top: 0.4rem;
+  color: var(--dim);
+  font-size: 0.72rem;
+  line-height: 1.5;
+}
+
+.g-main .stat-value.purple {
+  color: var(--accent-t);
+}
+
+.g-main .stat-value.cyan {
+  color: var(--cyan);
+}
+
+.g-main .stat-value.amber {
+  color: var(--amber);
+}
+
+.g-main .session-list {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.g-main .session-card {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr);
+  gap: 0.85rem;
+  padding: 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--fill);
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.g-main .session-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.g-main .session-time {
+  display: grid;
+  align-content: start;
+  justify-items: center;
+  gap: 0.25rem;
+  padding: 0.6rem 0.25rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--panel);
+}
+
+.g-main .session-time strong {
+  font: 700 0.88rem var(--f-head);
+}
+
+.g-main .session-time span {
+  color: var(--muted);
+  font-size: 0.65rem;
+}
+
+.g-main .session-content {
+  min-width: 0;
+}
+
+.g-main .session-content .session-person {
+  margin: 0 0 0.3rem;
+  font-weight: 650;
+  overflow-wrap: anywhere;
+}
+
+.g-main .session-content .session-topic {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.8rem;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.g-main .session-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.65rem;
+}
+
+.g-main .session-meta .session-mode {
+  color: var(--dim);
+  font-size: 0.72rem;
+}
+
+.g-main .empty-state {
+  padding: 1.5rem 1rem;
+  border: 1px dashed var(--line);
+  border-radius: 16px;
+  text-align: center;
+}
+
+.g-main .empty-state .empty-icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  margin: 0 auto 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--fill);
+  color: var(--accent-t);
+  font-size: 1.2rem;
+}
+
+.g-main .empty-state strong {
+  display: block;
+  margin-bottom: 0.35rem;
+}
+
+.g-main .empty-state p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.7;
+}
+
+.g-main .availability-intro {
+  margin: -0.3rem 0 1.2rem;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.7;
+}
+
+.g-main .lb {
+  display: block;
+  margin: 1rem 0 0.65rem;
+  font-size: 0.82rem;
+  font-weight: 650;
+}
+
+.g-main .chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.g-main .chip {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  background: var(--fill);
+  color: var(--muted);
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s, color 0.2s;
+}
+
+.g-main .chip:has(input:checked) {
+  border-color: var(--accent);
+  background: var(--accent-bg);
+  color: var(--text);
+}
+
+.g-main .chip input {
+  width: 13px;
+  height: 13px;
+  margin: 0 0.4rem 0 0;
+  accent-color: var(--accent);
+}
+
+.g-main .chip:focus-within {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.g-main .availability-divider {
+  height: 1px;
+  margin: 1.2rem 0;
+  background: var(--line);
+}
+
+.g-main .availability-actions {
+  margin-top: 1.25rem;
+}
+
+.g-main .availability-actions .btn {
+  width: 100%;
+}
+
+.g-main .hint {
+  color: var(--muted);
+  font-size: 0.77rem;
+  line-height: 1.7;
+}
+
+.g-main .err {
+  margin: 0.5rem 0;
+  color: var(--danger, #ff737d);
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+
+.g-main .availability-note {
+  display: flex;
+  gap: 0.65rem;
+  align-items: flex-start;
+  margin-top: 1rem;
+  padding: 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  background: var(--fill);
+  color: var(--muted);
+  font-size: 0.75rem;
+  line-height: 1.7;
+}
+
+.g-main .availability-note strong {
+  color: var(--text);
+}
+
+@media (max-width: 1050px) {
+  .g-main {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .g-main .stack {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+  }
+}
+
+@media (max-width: 650px) {
+  .g-main .stack {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .g-main .calendar-summary {
+    gap: 0.55rem;
+  }
+
+  .g-main .calendar-stat {
+    padding: 0.75rem;
+    border-radius: 14px;
+  }
+
+  .g-main .calendar-stat .stat-label {
+    font-size: 0.68rem;
+  }
+
+  .g-main .calendar-stat .stat-value {
+    font-size: 1.3rem;
+  }
+
+  .g-main .calendar-stat .stat-note {
+    font-size: 0.65rem;
+  }
+
+  .g-main .cal-cell {
+    min-height: 48px;
+    aspect-ratio: auto;
+    padding: 0.35rem;
+    border-radius: 9px;
+  }
+
+  .g-main .cal-cell b {
+    font-size: 0.75rem;
+  }
+
+  .g-main .cal-head {
+    font-size: 0.62rem;
+  }
+
+  .g-main .cal-dots {
+    gap: 2px;
+  }
+
+  .g-main .cal-dots i {
+    width: 5px;
+    height: 5px;
+    flex-basis: 5px;
+  }
+
+  .g-main .cal-legend {
+    gap: 0.65rem;
+  }
+
+  .g-main .session-card {
+    grid-template-columns: 58px minmax(0, 1fr);
+    gap: 0.65rem;
+    padding: 0.7rem;
+  }
+
+  .g-main .panel-h {
+    align-items: flex-start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .g-main *,
+  .g-main *::before,
+  .g-main *::after {
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Fix: Expert Calendar layout */
+.g-main {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.9fr);
+  gap: 20px;
+  align-items: start;
+}
+
+/* Statistics must occupy the full row */
+.g-main > .calendar-summary {
+  grid-column: 1 / -1;
+  min-width: 0;
+}
+
+/* Keep the calendar and side panels in their own columns */
+.g-main > .panel.card,
+.g-main > .stack {
+  min-width: 0;
+}
+
+.g-main > .stack {
+  display: grid;
+  gap: 20px;
+}
+
+@media (max-width: 1000px) {
+  .g-main {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .g-main > .calendar-summary {
+    grid-column: 1;
+  }
+
+  .g-main > .stack {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 620px) {
+  .g-main > .stack {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

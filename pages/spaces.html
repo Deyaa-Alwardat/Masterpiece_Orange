@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark light" />
+    <meta name="theme-color" content="#060916" />
+    <meta
+      name="description"
+      content="Compare workspaces across Jordan and book your desk in seconds."
+    />
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
+    <title>Spaces | NEXUS</title>
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@500;600;700;800&family=Unbounded:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../shared/css/base.css" />
+    <link rel="stylesheet" href="../shared/components/navbar.css" />
+    <link rel="stylesheet" href="../shared/components/footer.css" />
+    <link rel="stylesheet" href="../css/spaces.css" />
+  </head>
+  <body data-root="../" data-page="spaces">
+    <div id="nx-navbar" data-active="spaces"></div>
+
+    <main id="main">
+      <section class="sp-hero">
+        <div class="wrap sp-hero-in">
+          <div class="rv">
+            <span class="eyebrow"><span class="live-dot"></span>Live availability</span>
+            <h1>Pick your <span class="grad-t">space</span></h1>
+            <p>
+              Compare workspaces across Jordan, see who's free right now and book your exact desk in
+              seconds.
+            </p>
+            <div class="sp-search">
+              <svg class="i"><use href="#i-search" /></svg
+              ><input
+                id="fQ"
+                type="search"
+                placeholder="Search by name, area or city…"
+                aria-label="Search spaces"
+                autocomplete="off"
+              />
+            </div>
+          </div>
+          <div class="radar rv" aria-hidden="true">
+            <div class="radar-sweep"></div>
+            <i class="ring r1"></i><i class="ring r2"></i><i class="ring r3"></i>
+            <div class="rd-map" id="radarMap"></div>
+          </div>
+        </div>
+      </section>
+      <section class="wrap sp-tools rv">
+        <div class="filters-intro">
+          <span class="filters-icon" aria-hidden="true"><svg class="i"><use href="#i-filter" /></svg></span>
+          <div class="filters-copy">
+            <span class="filters-kicker">SPACE FINDER</span>
+            <h2>Refine your search</h2>
+            <p>Choose the location and atmosphere that work for you.</p>
+          </div>
+          <p class="count" id="spCount" aria-live="polite"></p>
+        </div>
+        <div class="tools-row" aria-label="Space filters">
+          <div class="filter-group filter-group-governorate">
+            <span class="filter-label" id="governorateLabel">Governorate</span>
+            <details class="filter-dropdown" id="governorateDropdown">
+              <summary aria-labelledby="governorateLabel governorateValue">
+                <span id="governorateValue">All governorates</span>
+                <svg class="i dropdown-chevron" aria-hidden="true"><use href="#i-chev-d" /></svg>
+              </summary>
+              <div class="dropdown-options" id="governorateOptions" aria-labelledby="governorateLabel"></div>
+            </details>
+          </div>
+          <div class="filter-group">
+            <span class="filter-label" id="vibeLabel">Space vibe</span>
+            <details class="filter-dropdown" id="vibeDropdown">
+              <summary aria-labelledby="vibeLabel vibeValue">
+                <span id="vibeValue">Any vibe</span>
+                <svg class="i dropdown-chevron" aria-hidden="true"><use href="#i-chev-d" /></svg>
+              </summary>
+              <div class="dropdown-options" id="vibeOptions" aria-labelledby="vibeLabel"></div>
+            </details>
+          </div>
+          <div class="filter-group">
+            <span class="filter-label" id="sortLabel">Sort</span>
+            <details class="filter-dropdown" id="sortDropdown">
+              <summary aria-labelledby="sortLabel sortValue">
+                <span id="sortValue">Top rated</span>
+                <svg class="i dropdown-chevron" aria-hidden="true"><use href="#i-chev-d" /></svg>
+              </summary>
+              <div class="dropdown-options" id="sortOptions" aria-labelledby="sortLabel"></div>
+            </details>
+          </div>
+        </div>
+      </section>
+      <section class="wrap sp-list" id="spList" aria-live="polite"></section>
+    </main>
+
+    <div id="nx-footer"></div>
+
+    <dialog class="dlg" id="dlg" aria-labelledby="dlg-t"></dialog>
+    <div id="toasts" aria-live="polite"></div>
+    <script src="../shared/js/paths.js"></script>
+    <script src="../shared/components/navbar.js"></script>
+    <script src="../shared/components/footer.js"></script>
+    <script src="../shared/js/store.js"></script>
+    <script src="../shared/js/data.js"></script>
+    <script src="../shared/js/seed.js"></script>
+    <script src="../shared/js/auth.js"></script>
+    <script src="../shared/js/api.js"></script>
+    <script src="../shared/js/ui.js"></script>
+    <script src="../shared/js/format.js"></script>
+    <script src="../js/spaces.js"></script>
+  </body>
+</html>

@@ -1,0 +1,390 @@
+/* NEXUS — public contact page */
+body[data-page="contact"] {
+  --contact-cyan: #45d9ef;
+  --contact-violet: #9c86ff;
+  --contact-amber: #ffc24b;
+}
+
+body[data-page="contact"] .contact-gradient {
+  background: linear-gradient(105deg, var(--contact-violet), var(--contact-cyan) 82%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+body[data-page="contact"] .contact-hero {
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(4rem, 8vw, 7rem) clamp(3rem, 6vw, 5rem);
+  border-bottom: 1px solid var(--line);
+  background:
+    radial-gradient(ellipse at 82% 42%, color-mix(in srgb, var(--violet) 15%, transparent), transparent 34rem),
+    radial-gradient(ellipse at 6% 100%, color-mix(in srgb, var(--cyan) 9%, transparent), transparent 32rem);
+}
+
+body[data-page="contact"] .contact-hero > .wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(220px, 0.8fr);
+  align-items: center;
+  gap: clamp(2rem, 6vw, 6rem);
+}
+
+body[data-page="contact"] .contact-hero-copy {
+  position: relative;
+  z-index: 1;
+}
+
+body[data-page="contact"] .contact-hero-copy .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+body[data-page="contact"] .contact-live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--contact-cyan);
+  box-shadow: 0 0 0 5px var(--cyan-bg), 0 0 18px var(--contact-cyan);
+}
+
+body[data-page="contact"] .contact-hero h1 {
+  margin-top: 1.1rem;
+  font-size: clamp(3rem, 7vw, 5.8rem);
+  line-height: 1;
+  letter-spacing: -0.075em;
+}
+
+body[data-page="contact"] .contact-hero-copy > p {
+  max-width: 40rem;
+  margin-top: 1.25rem;
+  color: var(--muted);
+  font-size: clamp(1rem, 1.5vw, 1.12rem);
+  line-height: 1.8;
+}
+
+body[data-page="contact"] .contact-hero-mark {
+  position: relative;
+  display: grid;
+  width: min(100%, 300px);
+  aspect-ratio: 1;
+  justify-self: center;
+  place-items: center;
+  border: 1px solid color-mix(in srgb, var(--line-2) 75%, transparent);
+  border-radius: 50%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--violet) 15%, transparent), transparent 68%);
+}
+
+body[data-page="contact"] .contact-mark-orbit {
+  position: absolute;
+  inset: 12%;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+}
+
+body[data-page="contact"] .contact-mark-orbit-two {
+  inset: 25%;
+  border-style: dashed;
+  opacity: 0.7;
+  transform: rotate(28deg);
+}
+
+body[data-page="contact"] .contact-mark-core {
+  display: grid;
+  width: 82px;
+  aspect-ratio: 1;
+  place-items: center;
+  border: 1px solid color-mix(in srgb, var(--contact-cyan) 35%, var(--line));
+  border-radius: 26px;
+  background: color-mix(in srgb, var(--panel) 82%, transparent);
+  box-shadow: 0 0 55px color-mix(in srgb, var(--cyan) 16%, transparent);
+  color: var(--contact-cyan);
+  font-size: 2rem;
+  transform: rotate(-8deg);
+}
+
+body[data-page="contact"] .contact-mark-spark {
+  position: absolute;
+  display: grid;
+  width: 32px;
+  aspect-ratio: 1;
+  place-items: center;
+  border: 1px solid var(--line-2);
+  border-radius: 11px;
+  background: var(--panel);
+  color: var(--contact-violet);
+}
+
+body[data-page="contact"] .contact-mark-spark-one {
+  top: 13%;
+  right: 19%;
+}
+
+body[data-page="contact"] .contact-mark-spark-two {
+  bottom: 17%;
+  left: 14%;
+  color: var(--contact-amber);
+}
+
+body[data-page="contact"] .contact-content {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  align-items: start;
+  gap: clamp(2.5rem, 7vw, 7rem);
+  padding-block: clamp(3.5rem, 7vw, 6rem);
+}
+
+body[data-page="contact"] .contact-overline {
+  color: var(--contact-cyan);
+  font: 650 0.7rem var(--f-head);
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+body[data-page="contact"] .contact-info h2 {
+  margin-top: 1rem;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  line-height: 1.12;
+  letter-spacing: -0.06em;
+}
+
+body[data-page="contact"] .contact-info-intro {
+  max-width: 35rem;
+  margin-top: 1rem;
+  color: var(--muted);
+  font-size: 0.94rem;
+  line-height: 1.8;
+}
+
+body[data-page="contact"] .contact-detail-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding: 1.05rem;
+  border: 1px solid var(--line);
+  border-radius: 17px;
+  background: linear-gradient(120deg, var(--card-a), var(--card-b));
+  transition: border-color 0.2s, transform 0.2s, background 0.2s;
+}
+
+body[data-page="contact"] a.contact-detail-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--line-2);
+  background: var(--fill-2);
+}
+
+body[data-page="contact"] .contact-detail-icon {
+  display: grid;
+  width: 46px;
+  height: 46px;
+  flex: none;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--fill);
+  font-size: 1.12rem;
+}
+
+body[data-page="contact"] .contact-icon-cyan { color: var(--contact-cyan); }
+body[data-page="contact"] .contact-icon-violet { color: var(--contact-violet); }
+body[data-page="contact"] .contact-icon-amber { color: var(--contact-amber); }
+
+body[data-page="contact"] .contact-detail-copy {
+  display: grid;
+  min-width: 0;
+  gap: 0.15rem;
+}
+
+body[data-page="contact"] .contact-detail-label {
+  color: var(--dim);
+  font-size: 0.71rem;
+}
+
+body[data-page="contact"] .contact-detail-copy strong {
+  color: var(--text);
+  font-size: 0.94rem;
+  font-weight: 650;
+}
+
+body[data-page="contact"] .contact-detail-copy > span:last-child {
+  color: var(--muted);
+  font-size: 0.76rem;
+  line-height: 1.5;
+}
+
+body[data-page="contact"] .contact-detail-arrow {
+  margin-inline-start: auto;
+  color: var(--dim);
+  transition: color 0.2s, transform 0.2s;
+}
+
+body[data-page="contact"] a.contact-detail-card:hover .contact-detail-arrow {
+  color: var(--contact-cyan);
+  transform: translate(2px, -2px);
+}
+
+body[data-page="contact"] .contact-support-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1.4rem;
+  padding: 0.9rem 0.2rem;
+  color: var(--muted);
+  font-size: 0.79rem;
+  line-height: 1.6;
+}
+
+body[data-page="contact"] .contact-support-link > .bi:first-child {
+  color: var(--contact-violet);
+  font-size: 1.15rem;
+}
+
+body[data-page="contact"] .contact-support-link > .bi:last-child {
+  flex: none;
+  margin-inline-start: auto;
+  color: var(--dim);
+}
+
+body[data-page="contact"] .contact-support-link strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+body[data-page="contact"] .contact-form-card {
+  padding: clamp(1.25rem, 3vw, 2.25rem);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background:
+    radial-gradient(ellipse at 100% 0, color-mix(in srgb, var(--violet) 10%, transparent), transparent 60%),
+    linear-gradient(145deg, var(--card-a), var(--card-b));
+  box-shadow: var(--card-shadow);
+}
+
+body[data-page="contact"] .contact-form-heading h2 {
+  margin-top: 0.65rem;
+  font-size: clamp(1.35rem, 2.4vw, 1.8rem);
+  letter-spacing: -0.04em;
+}
+
+body[data-page="contact"] .contact-form-heading p {
+  margin-top: 0.5rem;
+  color: var(--muted);
+  font-size: 0.84rem;
+  line-height: 1.65;
+}
+
+body[data-page="contact"] .contact-form {
+  display: grid;
+  gap: 1.05rem;
+  margin-top: 1.6rem;
+}
+
+body[data-page="contact"] .contact-field-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+body[data-page="contact"] .contact-field {
+  display: grid;
+  min-width: 0;
+  gap: 0.45rem;
+}
+
+body[data-page="contact"] .contact-field label {
+  color: var(--text);
+  font-size: 0.79rem;
+  font-weight: 600;
+}
+
+body[data-page="contact"] .contact-field input,
+body[data-page="contact"] .contact-field select,
+body[data-page="contact"] .contact-field textarea {
+  width: 100%;
+  min-height: 46px;
+  padding: 0.75rem 0.85rem;
+  border: 1px solid var(--line-2);
+  border-radius: 11px;
+  outline: none;
+  background: color-mix(in srgb, var(--bg) 76%, transparent);
+  color: var(--text);
+  font: 400 0.84rem var(--f-body);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+body[data-page="contact"] .contact-field textarea {
+  min-height: 132px;
+  resize: vertical;
+}
+
+body[data-page="contact"] .contact-field input::placeholder,
+body[data-page="contact"] .contact-field textarea::placeholder {
+  color: var(--dim);
+}
+
+body[data-page="contact"] .contact-field input:focus,
+body[data-page="contact"] .contact-field select:focus,
+body[data-page="contact"] .contact-field textarea:focus {
+  border-color: var(--contact-cyan);
+  box-shadow: 0 0 0 3px var(--focus-ring);
+}
+
+body[data-page="contact"] .contact-field select:invalid {
+  color: var(--dim);
+}
+
+body[data-page="contact"] .contact-submit {
+  display: inline-flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  margin-top: 0.15rem;
+}
+
+body[data-page="contact"] .contact-form-note {
+  min-height: 1.4em;
+  color: var(--dim);
+  font-size: 0.72rem;
+  line-height: 1.55;
+}
+
+@media (max-width: 800px) {
+  body[data-page="contact"] .contact-content {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2.5rem;
+  }
+
+  body[data-page="contact"] .contact-hero > .wrap {
+    grid-template-columns: minmax(0, 1fr) 220px;
+  }
+}
+
+@media (max-width: 580px) {
+  body[data-page="contact"] .contact-hero > .wrap {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  body[data-page="contact"] .contact-hero-mark {
+    display: none;
+  }
+
+  body[data-page="contact"] .contact-hero h1 {
+    font-size: clamp(2.8rem, 13vw, 4.6rem);
+  }
+
+  body[data-page="contact"] .contact-field-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body[data-page="contact"] .contact-detail-card,
+  body[data-page="contact"] .contact-detail-arrow,
+  body[data-page="contact"] .contact-field input,
+  body[data-page="contact"] .contact-field select,
+  body[data-page="contact"] .contact-field textarea {
+    transition: none;
+  }
+}

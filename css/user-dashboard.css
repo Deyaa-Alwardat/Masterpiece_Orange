@@ -1,0 +1,666 @@
+/* Editorial dashboard composition using the existing NEXUS design tokens. */
+body[data-page="user-dashboard"] .pg-head.dashboard-hero {
+  position: relative;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: clamp(1.25rem, 2.5vw, 1.8rem);
+  padding: clamp(1.5rem, 3vw, 2.35rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background:
+    radial-gradient(ellipse at 92% 0%, var(--accent-bg), transparent 34%),
+    linear-gradient(135deg, var(--panel), var(--bg));
+}
+
+body[data-page="user-dashboard"] .pg-head.dashboard-hero::after {
+  position: absolute;
+  bottom: -1px;
+  left: clamp(1.5rem, 3vw, 2.35rem);
+  width: 3.5rem;
+  height: 2px;
+  background: var(--accent);
+  content: "";
+}
+
+body[data-page="user-dashboard"] .pg-head.dashboard-hero::before {
+  position: absolute;
+  top: 50%;
+  right: 2rem;
+  width: clamp(8rem, 18vw, 15rem);
+  aspect-ratio: 1;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  box-shadow: 0 0 0 1.4rem var(--fill), 0 0 0 2.8rem var(--card-b);
+  content: "";
+  opacity: 0.45;
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+body[data-page="user-dashboard"] .dashboard-hero-copy {
+  min-width: 0;
+  position: relative;
+  z-index: 1;
+}
+
+body[data-page="user-dashboard"] .dashboard-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--accent-t);
+  font: 700 0.72rem var(--f-head);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+body[data-page="user-dashboard"] .dashboard-eyebrow .i {
+  width: 1rem;
+  height: 1rem;
+}
+
+body[data-page="user-dashboard"] .pg-head.dashboard-hero h1 {
+  margin-top: 0.65rem;
+  font-size: clamp(2.15rem, 4vw, 3.2rem);
+  line-height: 1.08;
+  letter-spacing: -0.045em;
+}
+
+body[data-page="user-dashboard"] .dashboard-title-accent {
+  color: var(--accent-t);
+}
+
+body[data-page="user-dashboard"] .pg-head.dashboard-hero .dashboard-welcome {
+  margin-top: 0.8rem;
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+body[data-page="user-dashboard"] .dashboard-hero-note {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.7rem;
+  color: var(--dim);
+  font-size: 0.84rem;
+}
+
+body[data-page="user-dashboard"] .dashboard-hero-note::before {
+  width: 1.15rem;
+  height: 1px;
+  background: var(--accent);
+  content: "";
+}
+
+body[data-page="user-dashboard"] .dashboard-find-desk {
+  position: relative;
+  z-index: 1;
+  flex: none;
+  min-height: 50px;
+  padding-inline: 1.35rem;
+}
+
+body[data-page="user-dashboard"] .dashboard-stats {
+  display: grid;
+  grid-template-columns: minmax(250px, 0.9fr) minmax(0, 1.5fr);
+  gap: clamp(1rem, 2.2vw, 1.6rem);
+  align-items: stretch;
+}
+
+body[data-page="user-dashboard"] .dashboard-feature-stat {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  min-height: 210px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  overflow: hidden;
+  padding: clamp(1.35rem, 2.5vw, 2rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background:
+    radial-gradient(circle at 100% 0%, var(--accent-bg), transparent 42%),
+    linear-gradient(145deg, var(--panel), var(--fill));
+  box-shadow: var(--card-shadow);
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+body[data-page="user-dashboard"] .dashboard-feature-stat::after {
+  position: absolute;
+  top: -6rem;
+  right: -5rem;
+  width: 14rem;
+  height: 14rem;
+  border: 1px solid var(--line-2);
+  border-radius: 50%;
+  box-shadow: 0 0 0 1.5rem var(--fill), 0 0 0 3rem var(--card-b);
+  content: "";
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+body[data-page="user-dashboard"] .dashboard-feature-stat:hover {
+  border-color: var(--focus);
+  box-shadow: 0 18px 40px -28px var(--focus-ring);
+  transform: translateY(-2px);
+}
+
+body[data-page="user-dashboard"] .dashboard-feature-stat:focus-visible,
+body[data-page="user-dashboard"] .dashboard-metric:focus-visible,
+body[data-page="user-dashboard"] .dashboard-details:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+
+body[data-page="user-dashboard"] .dashboard-feature-icon {
+  position: absolute;
+  top: 1.35rem;
+  right: 1.4rem;
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border: 1px solid var(--line-2);
+  border-radius: 14px;
+  background: var(--fill);
+  color: var(--accent-t);
+}
+
+body[data-page="user-dashboard"] .dashboard-feature-icon .i {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+body[data-page="user-dashboard"] .dashboard-feature-label {
+  color: var(--muted);
+  font-size: 0.94rem;
+}
+
+body[data-page="user-dashboard"] .dashboard-feature-value {
+  margin-top: 0.25rem;
+  font: 700 clamp(3.5rem, 6vw, 5.5rem)/1 var(--f-head);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.06em;
+}
+
+body[data-page="user-dashboard"] .dashboard-feature-foot {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: 0.85rem;
+  color: var(--muted);
+  font-size: 0.87rem;
+}
+
+body[data-page="user-dashboard"] .dashboard-feature-arrow {
+  display: inline-flex;
+  margin-inline-start: 0.45rem;
+  color: var(--accent-t);
+  transition: transform 0.18s;
+}
+
+body[data-page="user-dashboard"] .dashboard-feature-stat:hover .dashboard-feature-arrow {
+  transform: translateX(3px);
+}
+
+body[data-page="user-dashboard"] .dashboard-support-stats {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 0.75rem;
+}
+
+body[data-page="user-dashboard"] .dashboard-metric {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-rows: 40px auto;
+  align-content: center;
+  align-items: center;
+  gap: 0.7rem 0.5rem;
+  min-height: 132px;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: linear-gradient(145deg, var(--panel), var(--fill));
+  color: var(--text);
+  text-decoration: none;
+  transition: border-color 0.18s, background 0.18s, transform 0.18s;
+}
+
+body[data-page="user-dashboard"] a.dashboard-metric:hover {
+  border-color: var(--focus);
+  background: var(--panel-2);
+  transform: translateY(-2px);
+}
+
+body[data-page="user-dashboard"] .dashboard-metric-icon {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  grid-column: 1;
+  grid-row: 1;
+  place-items: center;
+  border-radius: 13px;
+  background: var(--accent-bg);
+  color: var(--accent-t);
+}
+
+body[data-page="user-dashboard"] .dashboard-metric-icon .i {
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+body[data-page="user-dashboard"] .dashboard-metric-copy {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-row: 2;
+  min-width: 0;
+  gap: 0.12rem;
+}
+
+body[data-page="user-dashboard"] .dashboard-metric-label {
+  color: var(--muted);
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
+body[data-page="user-dashboard"] .dashboard-metric-value {
+  overflow-wrap: anywhere;
+  font: 700 1.16rem/1.3 var(--f-head);
+  font-variant-numeric: tabular-nums;
+}
+
+body[data-page="user-dashboard"] .dashboard-metric-sub {
+  color: var(--dim);
+  font-size: 0.78rem;
+}
+
+body[data-page="user-dashboard"] .dashboard-metric-arrow {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: start;
+  color: var(--dim);
+}
+
+body[data-page="user-dashboard"] .dashboard-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(300px, 0.9fr);
+  align-items: start;
+  gap: 1rem;
+  margin-top: clamp(1.25rem, 2.5vw, 1.8rem);
+}
+
+body[data-page="user-dashboard"] .dashboard-charts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: clamp(1.25rem, 2.5vw, 1.8rem);
+}
+
+body[data-page="user-dashboard"] .dashboard-chart-card {
+  min-width: 0;
+  transition: border-color 0.18s, transform 0.18s;
+}
+
+body[data-page="user-dashboard"] .dashboard-chart-card:hover {
+  border-color: var(--line-2);
+  transform: translateY(-2px);
+}
+
+body[data-page="user-dashboard"] .dashboard-chart-card .panel-h {
+  align-items: flex-start;
+}
+
+body[data-page="user-dashboard"] .dashboard-chart-caption {
+  margin-top: 0.3rem;
+  color: var(--dim);
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+
+body[data-page="user-dashboard"] .dashboard-chart-wrap {
+  position: relative;
+  height: 210px;
+  margin-top: 0.85rem;
+}
+
+body[data-page="user-dashboard"] .dashboard-chart-unavailable {
+  display: grid;
+  height: 100%;
+  place-items: center;
+  color: var(--muted);
+  font-size: 0.88rem;
+  text-align: center;
+}
+
+body[data-page="user-dashboard"] .dashboard-panel {
+  min-width: 0;
+  padding: clamp(1rem, 2vw, 1.4rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: linear-gradient(155deg, var(--panel), var(--fill));
+  box-shadow: var(--card-shadow);
+}
+
+body[data-page="user-dashboard"] .dashboard-panel > .panel-h {
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid var(--line);
+}
+
+body[data-page="user-dashboard"] .dashboard-side {
+  min-width: 0;
+}
+
+body[data-page="user-dashboard"] .dashboard-bookings,
+body[data-page="user-dashboard"] .dashboard-transactions {
+  display: grid;
+}
+
+body[data-page="user-dashboard"] .dashboard-booking {
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr);
+  gap: 0.9rem;
+  align-items: start;
+  padding: 1.05rem 0;
+  border-inline-start: 2px solid transparent;
+  transition: border-color 0.18s, padding 0.18s;
+}
+
+body[data-page="user-dashboard"] .dashboard-booking + .dashboard-booking,
+body[data-page="user-dashboard"] .dashboard-transaction + .dashboard-transaction {
+  border-top: 1px solid var(--line);
+}
+
+body[data-page="user-dashboard"] .dashboard-booking.is-next {
+  padding-inline-start: 0.6rem;
+  border-inline-start-color: var(--accent);
+}
+
+body[data-page="user-dashboard"] .dashboard-date {
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  gap: 0.05rem;
+  min-height: 58px;
+  border: 1px solid var(--line-2);
+  border-radius: 15px;
+  background: var(--fill);
+  font-variant-numeric: tabular-nums;
+  transition: background 0.18s, border-color 0.18s;
+}
+
+body[data-page="user-dashboard"] .dashboard-booking.is-next .dashboard-date {
+  border-color: var(--focus);
+  background: var(--accent-bg);
+}
+
+body[data-page="user-dashboard"] .dashboard-date b {
+  font: 700 1.25rem/1.15 var(--f-head);
+}
+
+body[data-page="user-dashboard"] .dashboard-date span {
+  color: var(--accent-t);
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+body[data-page="user-dashboard"] .dashboard-booking-main,
+body[data-page="user-dashboard"] .dashboard-transaction-main {
+  min-width: 0;
+}
+
+body[data-page="user-dashboard"] .dashboard-booking h3,
+body[data-page="user-dashboard"] .dashboard-transaction h3 {
+  overflow-wrap: anywhere;
+  font: 600 0.98rem/1.4 var(--f-head);
+}
+
+body[data-page="user-dashboard"] .dashboard-booking-main > p,
+body[data-page="user-dashboard"] .dashboard-transaction time,
+body[data-page="user-dashboard"] .dashboard-transaction-main > p {
+  display: block;
+  margin-top: 0.25rem;
+  color: var(--muted);
+  font-size: 0.86rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+body[data-page="user-dashboard"] .dashboard-booking-foot {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.6rem 0.9rem;
+  margin-top: 0.65rem;
+}
+
+body[data-page="user-dashboard"] .dashboard-booking-foot .sts {
+  white-space: normal;
+}
+
+body[data-page="user-dashboard"] .dashboard-details {
+  color: var(--accent-t);
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+
+body[data-page="user-dashboard"] .dashboard-details:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+body[data-page="user-dashboard"] .dashboard-transaction {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.8rem;
+  padding: 0.9rem 0;
+}
+
+body[data-page="user-dashboard"] .dashboard-transaction:first-child {
+  padding-top: 0.2rem;
+}
+
+body[data-page="user-dashboard"] .dashboard-amount {
+  flex: none;
+  padding-top: 0.1rem;
+  font-size: 0.88rem;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+body[data-page="user-dashboard"] .dashboard-amount.neg {
+  color: var(--pink-t);
+}
+
+body[data-page="user-dashboard"] .dashboard-amount.pos {
+  color: var(--mint-t);
+}
+
+body[data-page="user-dashboard"] .dashboard-quick-panel {
+  margin-top: 1rem;
+}
+
+body[data-page="user-dashboard"] .dashboard-actions {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.7rem;
+}
+
+body[data-page="user-dashboard"] .dashboard-actions .btn {
+  justify-content: flex-start;
+  min-width: 0;
+  min-height: 56px;
+  padding: 0.75rem 0.9rem;
+  border-radius: 15px;
+  text-align: start;
+}
+
+body[data-page="user-dashboard"] .dashboard-actions .btn .i {
+  flex: none;
+}
+
+body[data-page="user-dashboard"] .dashboard-demo-note {
+  margin-top: 1rem;
+  color: var(--dim);
+  font-size: 0.8rem;
+}
+
+@media (max-width: 1080px) {
+  body[data-page="user-dashboard"] .dashboard-stats {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  body[data-page="user-dashboard"] .dashboard-feature-stat {
+    min-height: 190px;
+  }
+
+  body[data-page="user-dashboard"] .dashboard-support-stats {
+    gap: 0.65rem;
+  }
+
+  body[data-page="user-dashboard"] .dashboard-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  body[data-page="user-dashboard"] .dashboard-actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  body[data-page="user-dashboard"] .dashboard-feature-stat {
+    min-height: 175px;
+  }
+
+  body[data-page="user-dashboard"] .dashboard-metric {
+    min-height: 118px;
+  }
+}
+
+@media (max-width: 760px) {
+  body[data-page="user-dashboard"] .dashboard-charts {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  body[data-page="user-dashboard"] .dashboard-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  body[data-page="user-dashboard"] .dashboard-actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  body[data-page="user-dashboard"] .pg-head.dashboard-hero {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 1.2rem;
+    padding: 1.4rem;
+  }
+
+  body[data-page="user-dashboard"] .pg-head.dashboard-hero::before {
+    right: 1rem;
+    width: 8rem;
+  }
+}
+
+@media (max-width: 680px) {
+  body[data-page="user-dashboard"] .dashboard-support-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  body[data-page="user-dashboard"] .pg-head.dashboard-hero h1 {
+    font-size: clamp(2rem, 9vw, 2.7rem);
+  }
+
+  body[data-page="user-dashboard"] .dashboard-find-desk {
+    width: 100%;
+  }
+
+  body[data-page="user-dashboard"] .dashboard-feature-stat {
+    min-height: 180px;
+    padding: 1.2rem;
+  }
+
+  body[data-page="user-dashboard"] .dashboard-support-stats {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  body[data-page="user-dashboard"] .dashboard-metric {
+    min-height: 92px;
+  }
+
+  body[data-page="user-dashboard"] .dashboard-feature-value {
+    font-size: 3.8rem;
+  }
+
+  body[data-page="user-dashboard"] .dashboard-metric {
+    grid-template-columns: 38px minmax(0, 1fr) auto;
+    grid-template-rows: auto;
+    align-content: normal;
+    gap: 0.7rem;
+    min-height: 92px;
+    padding-inline: 0.25rem;
+  }
+
+  body[data-page="user-dashboard"] .dashboard-metric-icon {
+    width: 36px;
+    height: 36px;
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  body[data-page="user-dashboard"] .dashboard-metric-copy {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  body[data-page="user-dashboard"] .dashboard-metric-arrow {
+    grid-column: 3;
+    grid-row: 1;
+  }
+
+  body[data-page="user-dashboard"] .dashboard-panel {
+    padding: 1rem;
+  }
+
+  body[data-page="user-dashboard"] .dashboard-actions {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  body[data-page="user-dashboard"] .dashboard-actions .btn {
+    min-height: 50px;
+  }
+
+  body[data-page="user-dashboard"] .dashboard-booking {
+    grid-template-columns: 48px minmax(0, 1fr);
+    gap: 0.7rem;
+  }
+
+  body[data-page="user-dashboard"] .dashboard-date {
+    min-height: 52px;
+    border-radius: 13px;
+  }
+
+  body[data-page="user-dashboard"] .dashboard-transaction {
+    gap: 0.5rem;
+  }
+
+  body[data-page="user-dashboard"] .dashboard-amount {
+    font-size: 0.8rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body[data-page="user-dashboard"] *,
+  body[data-page="user-dashboard"] *::before,
+  body[data-page="user-dashboard"] *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

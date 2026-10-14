@@ -1,0 +1,37 @@
+/* NEXUS — experts.css */
+.grad-t {
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.ex-hero {
+  position: relative;
+  padding: clamp(40px, 6vw, 76px) 0 2rem;
+  overflow: hidden;
+}
+.ex-hero::before {
+  content: "";
+  position: absolute;
+  inset: -20% auto auto -10%;
+  width: 620px;
+  height: 620px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 94, 156, calc(var(--glow-a) * 0.7)),
+    transparent 65%
+  );
+  pointer-events: none;
+}
+.ex-hero h1 {
+  font-size: clamp(2.1rem, 4.6vw, 3.7rem);
+  line-height: 1.08;
+  margin: 0.7rem 0 0.9rem;
+  max-width: 20ch;
+}
+.ex-hero > .wrap > .rv > p {
+  color: var(--muted);
+  font-size: 1.1rem;
+  max-width: 40rem;
+}

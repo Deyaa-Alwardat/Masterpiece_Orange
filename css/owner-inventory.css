@@ -1,0 +1,34 @@
+/* NEXUS — owner inventory: desk manager */
+.desk-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(46px, 1fr));
+  gap: 0.45rem;
+}
+.dk {
+  aspect-ratio: 1;
+  border-radius: 12px;
+  font: 600 0.85rem var(--f-head);
+  border: 1.5px solid var(--cyan);
+  color: var(--cyan-t);
+  background: var(--cyan-bg);
+  transition: 0.15s;
+}
+.dk.social {
+  border-color: var(--violet);
+  color: var(--violet-t);
+  background: rgba(124, 92, 255, 0.14);
+}
+.dk.busy {
+  border-color: var(--amber);
+  color: var(--amber-t);
+  background: var(--amber-bg);
+}
+.dk.blocked {
+  border-color: var(--pink);
+  color: var(--pink-t);
+  background: var(--pink-bg);
+  text-decoration: line-through;
+}
+.dk:hover {
+  transform: translateY(-2px);
+}

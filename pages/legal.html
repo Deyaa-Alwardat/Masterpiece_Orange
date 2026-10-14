@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark light" />
+    <meta name="theme-color" content="#060916" />
+    <meta
+      name="description"
+      content="NEXUS privacy, terms and cookie information for the demo environment."
+    />
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
+    <title>Legal | NEXUS</title>
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@500;600;700;800&family=Unbounded:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../shared/css/base.css" />
+    <link rel="stylesheet" href="../shared/components/navbar.css" />
+    <link rel="stylesheet" href="../shared/components/footer.css" />
+    <link rel="stylesheet" href="../css/legal.css" />
+  </head>
+  <body data-root="../" data-page="legal">
+    <div id="nx-navbar" data-active=""></div>
+    <main id="main">
+      <div class="wrap legal">
+        <header class="page-head">
+          <span class="eyebrow">Legal</span>
+          <h1>Privacy, terms &amp; cookies</h1>
+          <p>
+            This site is a demonstration of the NEXUS platform. The notes below describe how the
+            demo behaves; they are not a binding legal agreement.
+          </p>
+        </header>
+        <nav class="legal-tabs" aria-label="Legal sections">
+          <a href="#privacy">Privacy</a><a href="#terms">Terms</a><a href="#cookies">Cookies</a>
+        </nav>
+        <section class="card pad" id="privacy">
+          <h2>Privacy</h2>
+          <p>
+            This is a screens-only demo. Nothing you enter is stored, saved or sent anywhere —
+            sample data is generated in your browser and disappears when you refresh.
+          </p>
+          <p>
+            The newsletter form stores your email address in your browser only. Clearing site data
+            removes it.
+          </p>
+          <p>
+            Card details typed into the demo checkout are validated in the page and never stored;
+            only the last four digits are kept to label a payment.
+          </p>
+        </section>
+        <section class="card pad" id="terms">
+          <h2>Terms of use</h2>
+          <p>
+            Bookings, payments, payouts and invoices in this environment are simulated. No money is
+            charged or transferred, and invoices are not tax documents.
+          </p>
+          <p>
+            Demo sign-in passwords are hashed with a simple demo function and offer no real
+            security. Do not enter real passwords or personal data.
+          </p>
+          <p>
+            A production launch will replace the demo layer with a real backend, real payment
+            processing and legally reviewed terms.
+          </p>
+        </section>
+        <section class="card pad" id="cookies">
+          <h2>Cookies &amp; storage</h2>
+          <p>
+            NEXUS sets no cookies. It uses browser storage for your session, theme preference, demo
+            data and remembered choices. You can clear this at any time in your browser settings, or
+            reset the demo from the admin console.
+          </p>
+          <p>Google Fonts are loaded from Google's servers to display the NEXUS typography.</p>
+        </section>
+      </div>
+    </main>
+    <div id="nx-footer"></div>
+    <dialog class="dlg" id="dlg" aria-labelledby="dlg-t"></dialog>
+    <div id="toasts" aria-live="polite"></div>
+    <script src="../shared/js/paths.js"></script>
+    <script src="../shared/components/navbar.js"></script>
+    <script src="../shared/components/footer.js"></script>
+    <script src="../shared/js/store.js"></script>
+    <script src="../shared/js/data.js"></script>
+    <script src="../shared/js/seed.js"></script>
+    <script src="../shared/js/auth.js"></script>
+    <script src="../shared/js/api.js"></script>
+    <script src="../shared/js/ui.js"></script>
+    <script src="../shared/js/format.js"></script>
+    <script src="../js/legal.js"></script>
+  </body>
+</html>

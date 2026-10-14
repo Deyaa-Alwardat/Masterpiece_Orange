@@ -1,0 +1,57 @@
+.booking-groups {
+  display: flex;
+  gap: 0.55rem;
+  margin: 0 0 1rem;
+  overflow-x: auto;
+  padding-bottom: 0.25rem;
+}
+
+.booking-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  flex: 0 0 auto;
+  border: 1px solid var(--line-2);
+  border-radius: 999px;
+  padding: 0.55rem 0.8rem;
+  background: transparent;
+  color: var(--dim);
+  font: inherit;
+  cursor: pointer;
+}
+
+.booking-group[aria-pressed="true"] {
+  border-color: var(--accent);
+  background: var(--accent-bg);
+  color: var(--accent-t);
+}
+
+.booking-group span {
+  min-width: 1.35rem;
+  border-radius: 999px;
+  padding: 0.05rem 0.35rem;
+  background: var(--fill);
+  color: var(--ink);
+  font-size: 0.78rem;
+  text-align: center;
+}
+
+.booking-price {
+  min-width: 11rem;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.booking-price span,
+.booking-price small,
+.booking-price strong {
+  display: block;
+}
+
+.booking-price small {
+  max-width: 15rem;
+  margin: 0.2rem 0;
+  color: var(--dim);
+  font-size: 0.75rem;
+  white-space: normal;
+}

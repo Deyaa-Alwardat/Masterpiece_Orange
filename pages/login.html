@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark light" />
+    <meta name="theme-color" content="#060916" />
+    <meta name="description" content="Create your NEXUS account or sign in." />
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
+    <title>Member sign in | NEXUS</title>
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@500;600;700;800&family=Unbounded:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../shared/css/base.css" />
+    <link rel="stylesheet" href="../shared/components/navbar.css" />
+    <link rel="stylesheet" href="../shared/components/footer.css" />
+    <link rel="stylesheet" href="../css/login.css" />
+  </head>
+  <body data-root="../" data-page="login" data-role="user">
+    <div id="nx-navbar" data-active=""></div>
+
+    <main id="main">
+      <section class="auth">
+        <div class="stage" id="stage">
+          <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+          <canvas
+            id="orbit"
+            role="img"
+            aria-label="Animated NEXUS logo with space, services, AI and expert nodes orbiting around it"
+          ></canvas>
+          <div class="stage-copy">
+            <span class="eyebrow"><span class="live-dot"></span>Join NEXUS</span>
+            <h1>
+              One account for<br /><span class="rotor" aria-live="off"
+                ><b>workspaces.</b><b>services.</b><b>experts.</b></span
+              >
+            </h1>
+            <p>
+              Book a specific desk, request help from your seat and get matched with a local expert
+              — all from one place.
+            </p>
+            <ul class="perks">
+              <li>
+                <span
+                  ><svg class="i"><use href="#i-check" /></svg></span
+                >Choose your exact desk from a live floor plan
+              </li>
+              <li>
+                <span
+                  ><svg class="i"><use href="#i-check" /></svg></span
+                >Request services without leaving your seat
+              </li>
+              <li>
+                <span
+                  ><svg class="i"><use href="#i-check" /></svg></span
+                >AI-assisted expert matching, you stay in control
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="panel-wrap">
+          <div class="auth-card" id="authCard">
+            <div class="card-glow" aria-hidden="true"></div>
+            <div class="tabs" role="tablist" aria-label="Account">
+              <button type="button" role="tab" data-mode="register" aria-selected="true">
+                Create account
+              </button>
+              <button type="button" role="tab" data-mode="login" aria-selected="false">
+                Sign in
+              </button>
+              <i class="tab-ink" aria-hidden="true"></i>
+            </div>
+            <div id="authRoot" class="auth-body"></div>
+            <p class="guest">
+              Just looking around?
+              <a class="link" href="spaces.html"
+                >Explore spaces as a guest <svg class="i"><use href="#i-arrow-r" /></svg
+              ></a>
+            </p>
+          </div>
+          <div id="portalLinks"></div>
+          <p class="demo-note">
+            <svg class="i"><use href="#i-shield" /></svg> Demo screens — nothing is stored and no
+            real sign-in happens.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <div id="nx-footer" data-compact="true"></div>
+
+    <dialog class="dlg" id="dlg" aria-labelledby="dlg-t"></dialog>
+    <div id="toasts" aria-live="polite"></div>
+    <script src="../shared/js/paths.js"></script>
+    <script src="../shared/components/navbar.js"></script>
+    <script src="../shared/components/footer.js"></script>
+    <script src="../shared/js/store.js"></script>
+    <script src="../shared/js/data.js"></script>
+    <script src="../shared/js/seed.js"></script>
+    <script src="../shared/js/auth.js"></script>
+    <script src="../shared/js/api.js"></script>
+    <script src="../shared/js/ui.js"></script>
+    <script src="../shared/js/format.js"></script>
+    <script src="../js/login.js"></script>
+  </body>
+</html>

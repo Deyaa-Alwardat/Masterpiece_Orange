@@ -1,0 +1,185 @@
+/* NEXUS — shared component: navbar */
+/* ---------- Navigation ---------- */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  padding-top: 14px;
+}
+.nav-in {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 0.6rem 0.55rem 0.7rem;
+  border-radius: 20px;
+  background: var(--nav-bg);
+  backdrop-filter: blur(18px) saturate(1.4);
+  -webkit-backdrop-filter: blur(18px) saturate(1.4);
+  border: 1px solid var(--line);
+  transition:
+    box-shadow 0.3s,
+    background 0.3s;
+}
+.nav.scrolled .nav-in {
+  box-shadow: 0 18px 50px -22px var(--shadow-c);
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding-inline: 0.5rem;
+  color: var(--text);
+}
+.brand svg {
+  width: 34px;
+  height: 34px;
+  transition: transform 0.5s cubic-bezier(0.3, 1.4, 0.5, 1);
+}
+.brand:hover svg {
+  transform: rotate(-12deg) scale(1.08);
+}
+.brand svg circle {
+  stroke: var(--ring);
+  stroke-width: 3;
+}
+.wordmark {
+  font: 700 1.02rem/1 var(--f-logo);
+  letter-spacing: 0.06em;
+}
+.nav-links {
+  display: flex;
+  gap: 0.2rem;
+  margin-inline-start: 1rem;
+}
+.nav-links a {
+  position: relative;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  color: var(--muted);
+  font-weight: 500;
+  font-size: 0.96rem;
+  transition:
+    background 0.2s,
+    color 0.2s;
+}
+.nav-links a:hover {
+  color: var(--text);
+  background: var(--fill);
+}
+.nav-links a[aria-current="page"] {
+  color: var(--sel-text);
+  background: var(--sel-bg);
+}
+.nav-actions {
+  margin-inline-start: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+}
+.theme-btn,
+.menu-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  border: 1px solid var(--line-2);
+  display: grid;
+  place-items: center;
+  font-size: 1.15rem;
+  color: var(--muted);
+  transition: 0.15s;
+}
+.theme-btn:hover,
+.menu-btn:hover {
+  color: var(--text);
+  background: var(--fill-2);
+}
+.theme-btn .i-moon {
+  display: none;
+}
+:root[data-theme="light"] .theme-btn .i-sun {
+  display: none;
+}
+:root[data-theme="light"] .theme-btn .i-moon {
+  display: inline-block;
+}
+.menu-btn {
+  display: none;
+}
+.user-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.35rem 0.9rem 0.35rem 0.4rem;
+  border-radius: 14px;
+  border: 1px solid var(--line-2);
+  background: var(--fill);
+}
+.user-chip .avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  font-size: 0.85rem;
+}
+.user-menu {
+  position: absolute;
+  inset-inline-end: 0;
+  top: calc(100% + 10px);
+  min-width: 190px;
+  background: var(--panel-2);
+  border: 1px solid var(--line-2);
+  border-radius: 16px;
+  padding: 0.4rem;
+  box-shadow: 0 24px 60px -20px var(--shadow-c);
+  z-index: 5;
+}
+.user-menu a,
+.user-menu button {
+  display: block;
+  width: 100%;
+  text-align: start;
+  padding: 0.65rem 0.9rem;
+  border-radius: 10px;
+}
+.user-menu a:hover,
+.user-menu button:hover {
+  background: var(--fill-2);
+}
+#navUser {
+  display: inline-flex;
+  gap: 0.4rem;
+  align-items: center;
+}
+
+@media (max-width: 640px) {
+  #navUser .btn-ghost {
+    display: none;
+  }
+}
+@media (max-width: 860px) {
+  .nav-links {
+    display: none;
+    position: absolute;
+    inset-inline: 0;
+    top: calc(100% + 10px);
+    flex-direction: column;
+    margin: 0;
+    padding: 0.6rem;
+    border-radius: 20px;
+    background: var(--pop);
+    border: 1px solid var(--line-2);
+    box-shadow: 0 30px 70px -20px var(--shadow-c);
+  }
+  .nav-links.open {
+    display: flex;
+  }
+  .nav-links a {
+    padding: 0.85rem 1rem;
+  }
+  .menu-btn {
+    display: grid;
+  }
+  .nav-in {
+    position: relative;
+  }
+}

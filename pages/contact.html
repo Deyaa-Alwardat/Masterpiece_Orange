@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark light" />
+    <meta name="theme-color" content="#060916" />
+    <meta
+      name="description"
+      content="Contact the NEXUS team about workspaces, services, expert matching or partnerships."
+    />
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
+    <title>Contact | NEXUS</title>
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@500;600;700;800&family=Unbounded:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../shared/css/base.css" />
+    <link rel="stylesheet" href="../shared/components/navbar.css" />
+    <link rel="stylesheet" href="../shared/components/footer.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="../css/contact.css?v=20261013-1" />
+  </head>
+  <body data-root="../" data-page="contact">
+    <div id="nx-navbar" data-active="contact"></div>
+
+    <main id="main">
+      <section class="contact-hero">
+        <div class="wrap">
+          <div class="contact-hero-copy">
+            <span class="eyebrow"><span class="contact-live-dot"></span>We’re here to help</span>
+            <h1>Let’s start a<br /><span class="contact-gradient">conversation.</span></h1>
+            <p>
+              Have a question about finding a workspace, using a service or connecting with an
+              expert? Tell us what you need and we’ll point you in the right direction.
+            </p>
+          </div>
+          <div class="contact-hero-mark" aria-hidden="true">
+            <span class="contact-mark-orbit contact-mark-orbit-one"></span>
+            <span class="contact-mark-orbit contact-mark-orbit-two"></span>
+            <span class="contact-mark-core"><i class="bi bi-chat-dots"></i></span>
+            <span class="contact-mark-spark contact-mark-spark-one"><i class="bi bi-plus-lg"></i></span>
+            <span class="contact-mark-spark contact-mark-spark-two"><i class="bi bi-plus-lg"></i></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="wrap contact-content" aria-label="Contact NEXUS">
+        <div class="contact-info">
+          <span class="contact-overline">Reach the team</span>
+          <h2>Good things<br /><span class="contact-gradient">start with a hello.</span></h2>
+          <p class="contact-info-intro">
+            Choose the channel that works for you. For account-specific support, sign in and send
+            us a request from your settings so we can help with your account.
+          </p>
+
+          <a class="contact-detail-card" href="mailto:hello@nexus.jo">
+            <span class="contact-detail-icon contact-icon-cyan"><i class="bi bi-envelope"></i></span>
+            <span class="contact-detail-copy">
+              <span class="contact-detail-label">Email us</span>
+              <strong>hello@nexus.jo</strong>
+              <span>Questions, ideas and partnerships</span>
+            </span>
+            <i class="bi bi-arrow-up-right contact-detail-arrow" aria-hidden="true"></i>
+          </a>
+
+          <div class="contact-detail-card contact-detail-static">
+            <span class="contact-detail-icon contact-icon-violet"><i class="bi bi-geo-alt"></i></span>
+            <span class="contact-detail-copy">
+              <span class="contact-detail-label">Based in</span>
+              <strong>Amman, Jordan</strong>
+              <span>Built around the way people work in Jordan</span>
+            </span>
+          </div>
+
+          <div class="contact-detail-card contact-detail-static">
+            <span class="contact-detail-icon contact-icon-amber"><i class="bi bi-clock"></i></span>
+            <span class="contact-detail-copy">
+              <span class="contact-detail-label">Our response time</span>
+              <strong>Within one business day</strong>
+              <span>We’ll get back to you as soon as we can</span>
+            </span>
+          </div>
+
+          <a class="contact-support-link" href="../pages/login.html">
+            <i class="bi bi-person-check" aria-hidden="true"></i>
+            <span><strong>Already have an account?</strong> Sign in to contact support about your account.</span>
+            <i class="bi bi-arrow-right" aria-hidden="true"></i>
+          </a>
+        </div>
+
+        <div class="contact-form-card">
+          <div class="contact-form-heading">
+            <span class="contact-overline">Send us a note</span>
+            <h2>What can we help with?</h2>
+            <p>Fill in the details and your email app will open with a message ready to send.</p>
+          </div>
+          <form class="contact-form" id="contactForm">
+            <div class="contact-field-row">
+              <div class="contact-field">
+                <label for="contactName">Your name</label>
+                <input id="contactName" name="name" type="text" autocomplete="name" minlength="2" maxlength="80" placeholder="Name" required />
+              </div>
+              <div class="contact-field">
+                <label for="contactEmail">Email address</label>
+                <input id="contactEmail" name="email" type="email" autocomplete="email" maxlength="120" placeholder="you@example.com" required />
+              </div>
+            </div>
+            <div class="contact-field">
+              <label for="contactTopic">What’s this about?</label>
+              <select id="contactTopic" name="topic" required>
+                <option value="" selected disabled>Select a topic</option>
+                <option>Workspaces</option>
+                <option>Desk-side services</option>
+                <option>Expert matching</option>
+                <option>Partnerships</option>
+                <option>Something else</option>
+              </select>
+            </div>
+            <div class="contact-field">
+              <label for="contactMessage">Your message</label>
+              <textarea id="contactMessage" name="message" rows="5" minlength="10" maxlength="1200" placeholder="Tell us a little about what you need…" required></textarea>
+            </div>
+            <button class="btn btn-primary btn-lg contact-submit" type="submit">
+              Prepare email <i class="bi bi-send" aria-hidden="true"></i>
+            </button>
+            <p class="contact-form-note" id="contactFormStatus" aria-live="polite">
+              This demo opens your email app; it does not store or send messages from this page.
+            </p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <div id="nx-footer"></div>
+    <script src="../shared/js/paths.js"></script>
+    <script src="../shared/components/navbar.js"></script>
+    <script src="../shared/components/footer.js"></script>
+    <script src="../shared/js/store.js"></script>
+    <script src="../shared/js/data.js"></script>
+    <script src="../shared/js/seed.js"></script>
+    <script src="../shared/js/auth.js"></script>
+    <script src="../shared/js/api.js"></script>
+    <script src="../shared/js/ui.js"></script>
+    <script src="../shared/js/format.js"></script>
+    <script src="../js/contact.js?v=20261013-1"></script>
+  </body>
+</html>

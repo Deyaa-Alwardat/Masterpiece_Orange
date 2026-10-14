@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>AI Match Flow Test</title>
+  </head>
+  <body data-root="../" data-page="user-matchmaking" data-portal="user">
+    <div id="nx-portal"></div>
+    <div id="test-log" style="font-family:monospace; padding:15px; background:#111; color:#eee;"></div>
+
+    <script src="../shared/js/paths.js"></script>
+    <script src="../shared/js/store.js"></script>
+    <script src="../shared/js/data.js"></script>
+    <script src="../shared/js/seed.js"></script>
+    <script src="../shared/js/auth.js"></script>
+    <script src="../shared/js/api.js"></script>
+    <script src="../shared/js/ui.js"></script>
+    <script src="../shared/js/format.js"></script>
+    <script src="../shared/components/portal-shell.js"></script>
+    <script src="../shared/js/ai.js"></script>
+    <script src="../shared/components/matchmaker.js"></script>
+    <script src="../shared/components/match-studio.js"></script>
+    <script src="../shared/components/wallet.js"></script>
+    <script src="../js/user-matchmaking.js"></script>
+
+    <script>
+      const log = (msg) => {
+        const div = document.createElement("div");
+        div.textContent = msg;
+        document.getElementById("test-log").appendChild(div);
+      };
+
+      async function runTests() {
+        log("Waiting for initialization...");
+        await new Promise(r => setTimeout(r, 600));
+
+        const ta = document.getElementById("mtIn");
+        const btn = document.getElementById("mtGo");
+        const out = document.getElementById("mtOut");
+
+        if (!ta || !btn || !out) {
+          log("ERROR: Inputs not found! ta=" + !!ta + ", btn=" + !!btn + ", out=" + !!out);
+          return;
+        }
+
+        const cases = [
+          { name: "Pill 1 (Weak store sales)", text: "My online store has lots of traffic but weak sales and I don't know why." },
+          { name: "Pill 2 (Slow database)", text: "Our database queries are slow and the app lags when many users log in." },
+          { name: "Custom Dev", text: "I need a senior developer to build our mobile app and backend API." },
+          { name: "Ambiguous / General", text: "I need some general advice for my team and guidance on next steps." },
+          { name: "Short text", text: "Need help" }
+        ];
+
+        for (const c of cases) {
+          log("--- TEST CASE: " + c.name + " ---");
+          ta.value = c.text;
+          btn.click();
+
+          // Wait for matchmaker animation (3 steps * 450ms = 1350ms + render)
+          await new Promise(r => setTimeout(r, 2200));
+
+          const matches = out.querySelectorAll(".match");
+          const note = out.querySelector(".note");
+          const analysis = out.querySelector(".analysis-card");
+          const recommendedHeading = out.querySelector(".recommended-heading");
+
+          log("Matches found: " + matches.length);
+          if (matches.length > 0) {
+            matches.forEach((m, idx) => {
+              const name = m.querySelector("h3")?.textContent || "Unknown";
+              const pct = m.querySelector(".ring")?.dataset?.p || "no%";
+              const why = m.querySelector(".why")?.textContent || "";
+              log(`  [Match ${idx + 1}] ${name} (${pct}%) - Why: ${why.slice(0, 60)}...`);
+            });
+          }
+          if (note) {
+            log("  [Note rendered]: " + note.textContent);
+          }
+          log("  [Analysis card rendered]: " + !!analysis);
+          log("  [Recommended heading rendered]: " + !!recommendedHeading);
+        }
+
+        log("TEST RUN COMPLETE");
+        document.getElementById("test-log").setAttribute("data-done", "true");
+      }
+
+      window.addEventListener("DOMContentLoaded", () => {
+        runTests();
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,1019 @@
+/* Member matchmaking page polish; all values use the existing NEXUS tokens. */
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .pg-head {
+  margin-bottom: 1.2rem;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .ai-panel {
+  margin-top: 0;
+  padding: clamp(1.15rem, 3vw, 2rem);
+  border: 1px solid var(--line-2);
+  border-radius: var(--radius);
+  background: linear-gradient(145deg, var(--panel), var(--bg));
+  box-shadow: var(--card-shadow);
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .ai-panel::before {
+  background: var(--line-2);
+  animation: none;
+  opacity: 0.45;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .ai-glow {
+  opacity: 0.45;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .matchmaking-intro,
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .recommended-heading {
+  position: relative;
+  z-index: 1;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .matchmaking-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(240px, 0.8fr);
+  align-items: center;
+  gap: clamp(1rem, 3vw, 2.5rem);
+  min-height: 225px;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .matchmaking-copy {
+  max-width: 52rem;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .matchmaking-demo {
+  display: inline-flex;
+  margin-inline-start: 0.45rem;
+  padding: 0.2rem 0.45rem;
+  border: 1px solid var(--line-2);
+  border-radius: 99px;
+  color: var(--muted);
+  font: 600 0.58rem var(--f-body);
+  letter-spacing: 0.04em;
+  vertical-align: 0.12rem;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .matchmaking-truth {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  color: var(--dim);
+  font-size: 0.76rem;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .matchmaking-live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 4px var(--accent-bg);
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .matchmaking-radar {
+  position: relative;
+  display: grid;
+  width: 100%;
+  max-width: 350px;
+  min-height: 225px;
+  justify-self: end;
+  place-items: center;
+  overflow: hidden;
+  isolation: isolate;
+  background: radial-gradient(ellipse, var(--accent-bg), transparent 70%);
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .radar-orbit {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1;
+  border: 1px solid var(--line-2);
+  border-radius: 50%;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .radar-orbit-outer {
+  width: 195px;
+  animation: matchmaking-orbit 18s linear infinite;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .radar-orbit-inner {
+  width: 135px;
+  border-style: dashed;
+  opacity: 0.7;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .radar-orbit-outer i {
+  position: absolute;
+  top: 18px;
+  right: 30px;
+  width: 8px;
+  height: 8px;
+  border: 2px solid var(--panel);
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 4px var(--accent-bg);
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .radar-core {
+  z-index: 1;
+  display: grid;
+  width: 104px;
+  aspect-ratio: 1;
+  align-content: center;
+  justify-items: center;
+  gap: 0.12rem;
+  border: 1px solid var(--line-2);
+  border-radius: 50%;
+  background: linear-gradient(145deg, var(--panel-2), var(--panel));
+  box-shadow: 0 0 34px var(--focus-ring);
+  text-align: center;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .radar-core > span {
+  color: var(--accent-t);
+  font: 700 1.1rem var(--f-logo);
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .radar-core b {
+  font: 600 0.58rem var(--f-head);
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .radar-core small {
+  color: var(--dim);
+  font-size: 0.48rem;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .radar-chip {
+  position: absolute;
+  z-index: 2;
+  padding: 0.32rem 0.55rem;
+  border: 1px solid var(--line-2);
+  border-radius: 99px;
+  background: var(--panel);
+  color: var(--muted);
+  font-size: 0.62rem;
+  box-shadow: var(--card-shadow);
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .radar-chip-problem {
+  top: 10%;
+  left: 4%;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .radar-chip-skill {
+  top: 13%;
+  right: 2%;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .radar-chip-fit {
+  right: 7%;
+  bottom: 8%;
+  color: var(--accent-t);
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .ai-panel.is-analyzing .radar-orbit-outer {
+  animation-duration: 4s;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .ai-panel.is-analyzing .radar-core {
+  border-color: var(--focus);
+  box-shadow: 0 0 0 6px var(--focus-ring), 0 0 36px var(--focus-ring);
+}
+
+@keyframes matchmaking-orbit {
+  to { transform: rotate(360deg); }
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .matchmaking-kicker {
+  display: block;
+  color: var(--accent-t);
+  font: 700 0.7rem var(--f-head);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .matchmaking-intro h2,
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .recommended-heading h2 {
+  margin-top: 0.45rem;
+  font: 700 clamp(1.2rem, 2.3vw, 1.55rem)/1.25 var(--f-head);
+  letter-spacing: -0.025em;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .matchmaking-intro p,
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .recommended-heading p {
+  max-width: 48rem;
+  margin-top: 0.55rem;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .ai-panel textarea {
+  min-height: 150px;
+  margin-top: 1.2rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--line-2);
+  background: var(--fill);
+  line-height: 1.65;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .ai-panel textarea:focus-visible {
+  border-color: var(--focus);
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 1px;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .matchmaking-input-help {
+  position: relative;
+  margin-top: 0.45rem;
+  color: var(--dim);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .ai-bar {
+  align-items: flex-end;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) #examples {
+  gap: 0.55rem;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) #examples .pill {
+  transition: background 0.18s, border-color 0.18s, color 0.18s, transform 0.18s;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) #examples .pill:hover {
+  border-color: var(--focus);
+  color: var(--text);
+  transform: translateY(-1px);
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) #mtGo {
+  min-height: 48px;
+  padding-inline: 1.1rem;
+  white-space: nowrap;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) #mtGo:disabled {
+  cursor: progress;
+  opacity: 0.72;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) #mtOut {
+  margin-top: 1.35rem;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .think {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  padding: 1.1rem;
+  border-color: var(--line-2);
+  background: linear-gradient(145deg, var(--panel-2), var(--panel));
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .think .st {
+  min-width: 0;
+  min-height: 48px;
+  padding: 0.65rem;
+  border: 1px solid transparent;
+  border-radius: 13px;
+  font-size: 0.86rem;
+  line-height: 1.4;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .think .st.on {
+  border-color: var(--focus-ring);
+  border-color: var(--line-2);
+  border-inline-start-color: var(--accent);
+  background: var(--fill);
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .think .st.ok .d::after {
+  border-color: var(--mint-t);
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .analysis-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(220px, 0.85fr);
+  gap: 1.2rem;
+  padding: clamp(1rem, 2vw, 1.4rem);
+  border: 1px solid var(--line-2);
+  border-radius: 18px;
+  background: linear-gradient(145deg, var(--panel-2), var(--panel));
+  animation: analysis-arrive 0.38s ease-out both;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .analysis-copy h3 {
+  margin-top: 0.4rem;
+  font: 650 1.12rem/1.35 var(--f-head);
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .analysis-copy blockquote {
+  margin-top: 0.65rem;
+  padding-inline-start: 0.75rem;
+  border-inline-start: 2px solid var(--accent);
+  color: var(--text);
+  font-size: 0.9rem;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .analysis-copy > p,
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .analysis-evidence > p {
+  margin-top: 0.55rem;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.55;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .analysis-specialties,
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .analysis-tokens {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.7rem;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .analysis-token {
+  display: grid;
+  gap: 0.08rem;
+  padding: 0.38rem 0.55rem;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--fill);
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .analysis-token b {
+  color: var(--text);
+  font-size: 0.76rem;
+  font-weight: 600;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .analysis-token small {
+  color: var(--dim);
+  font-size: 0.65rem;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .analysis-label {
+  display: block;
+  color: var(--dim);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .analysis-evidence > .analysis-label:not(:first-child) {
+  margin-top: 1rem;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .analysis-no-signal {
+  color: var(--dim);
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+@keyframes analysis-arrive {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .recommended-heading {
+  padding: 0.15rem 0 0.2rem;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .recommended-heading p {
+  font-size: 0.88rem;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .match {
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 0.7rem 1rem;
+  border-radius: 18px;
+  background: linear-gradient(145deg, var(--panel-2), var(--panel));
+  transition: border-color 0.18s, transform 0.18s;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .match:hover {
+  border-color: var(--focus);
+  transform: translateY(-2px);
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .match .why {
+  line-height: 1.65;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .match-facts {
+  grid-column: 1 / -1;
+  color: var(--accent-t);
+  font-size: 0.88rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .match-fit-label {
+  align-self: start;
+  margin-top: -0.45rem;
+  color: var(--dim);
+  font-size: 0.68rem;
+  text-align: center;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .match .m-foot {
+  align-items: center;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .match .m-foot .btn {
+  min-height: 40px;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .ex-market {
+  padding-block: clamp(2rem, 4vw, 3.25rem);
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .ex-market .section-head {
+  gap: 0.45rem;
+  margin-bottom: 0;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .ex-market .section-head h2 {
+  font-size: clamp(1.45rem, 3vw, 2rem);
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .tools-row {
+  margin-block: 1.15rem 1.3rem;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .ex-card {
+  border: 1px solid var(--line);
+  background: linear-gradient(155deg, var(--panel), var(--fill));
+  box-shadow: var(--card-shadow);
+  transition: border-color 0.18s, transform 0.18s, box-shadow 0.18s;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .ex-card:hover {
+  border-color: var(--line-2);
+  box-shadow: 0 16px 32px -26px var(--shadow-c);
+  transform: translateY(-2px);
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .ex-list > .empty {
+  grid-column: 1 / -1;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) :is(a, button, input, select, textarea):focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+
+@media (max-width: 760px) {
+  body:is([data-page="user-matchmaking"], [data-page="experts"]) .matchmaking-intro {
+    grid-template-columns: minmax(0, 1fr);
+    min-height: 0;
+  }
+
+  body:is([data-page="user-matchmaking"], [data-page="experts"]) .matchmaking-radar {
+    min-height: 185px;
+    justify-self: center;
+  }
+
+  body:is([data-page="user-matchmaking"], [data-page="experts"]) .ai-bar {
+    align-items: stretch;
+  }
+
+  body:is([data-page="user-matchmaking"], [data-page="experts"]) .analysis-card {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  body:is([data-page="user-matchmaking"], [data-page="experts"]) #mtGo {
+    justify-content: center;
+  }
+
+}
+
+@media (max-width: 560px) {
+  body:is([data-page="user-matchmaking"], [data-page="experts"]) .think {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  body:is([data-page="user-matchmaking"], [data-page="experts"]) .match {
+    grid-template-columns: auto minmax(0, 1fr);
+    padding: 1rem;
+  }
+
+  body:is([data-page="user-matchmaking"], [data-page="experts"]) .match .ring {
+    grid-column: 2;
+    grid-row: 2;
+    justify-self: start;
+  }
+
+  body:is([data-page="user-matchmaking"], [data-page="experts"]) .match-fit-label {
+    grid-column: 2;
+    justify-self: start;
+    margin: -0.35rem 0 0;
+  }
+
+  body:is([data-page="user-matchmaking"], [data-page="experts"]) .match .why,
+  body:is([data-page="user-matchmaking"], [data-page="experts"]) .match .m-foot,
+  body:is([data-page="user-matchmaking"], [data-page="experts"]) .match-facts {
+    grid-column: 1 / -1;
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body:is([data-page="user-matchmaking"], [data-page="experts"]) .match,
+  body:is([data-page="user-matchmaking"], [data-page="experts"]) .ex-card,
+  body:is([data-page="user-matchmaking"], [data-page="experts"]) .radar-orbit-outer,
+  body:is([data-page="user-matchmaking"], [data-page="experts"]) .analysis-card,
+  body:is([data-page="user-matchmaking"], [data-page="experts"]) #examples .pill {
+    animation: none;
+    transition: none;
+  }
+}
+
+/* AI match studio */
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .pg-head {
+  margin-bottom: 1.65rem;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .pg-head h1 {
+  font-size: clamp(1.9rem, 4vw, 2.65rem);
+  letter-spacing: -0.055em;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .pg-head p {
+  max-width: 42rem;
+  margin-top: 0.55rem;
+  font-size: 0.98rem;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .ai-panel {
+  padding: clamp(1rem, 3.4vw, 2.5rem);
+  border-color: color-mix(in srgb, var(--focus) 24%, var(--line-2));
+  background:
+    radial-gradient(ellipse at 82% 2%, color-mix(in srgb, var(--violet) 13%, transparent), transparent 34rem),
+    linear-gradient(150deg, color-mix(in srgb, var(--panel-2) 78%, var(--bg)), var(--panel) 54%, var(--bg));
+  box-shadow: 0 24px 70px -54px var(--focus);
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .ai-panel::before {
+  background: conic-gradient(from var(--a, 0deg), transparent 10%, var(--violet) 25%, var(--cyan) 43%, transparent 58%);
+  opacity: 0.5;
+  animation: spinb 14s linear infinite;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .ai-glow {
+  width: min(620px, 76vw);
+  height: min(620px, 76vw);
+  right: -240px;
+  top: -350px;
+  background: radial-gradient(circle, color-mix(in srgb, var(--violet) 24%, transparent), transparent 68%);
+  opacity: 0.8;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .matchmaking-intro {
+  min-height: 290px;
+  grid-template-columns: minmax(0, 1.25fr) minmax(260px, 0.75fr);
+  gap: clamp(1rem, 4vw, 3rem);
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .matchmaking-copy {
+  max-width: 48rem;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .matchmaking-kicker {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  letter-spacing: 0.17em;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .matchmaking-demo {
+  border-color: color-mix(in srgb, var(--violet) 40%, var(--line-2));
+  background: color-mix(in srgb, var(--violet) 10%, var(--panel));
+  color: var(--violet-t);
+  letter-spacing: 0.08em;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .matchmaking-intro h2 {
+  max-width: 13ch;
+  margin-top: 1rem;
+  font-size: clamp(2rem, 4.5vw, 3.65rem);
+  line-height: 1.08;
+  letter-spacing: -0.065em;
+  background: linear-gradient(105deg, var(--text) 16%, var(--violet-t) 60%, var(--cyan-t));
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .matchmaking-intro p {
+  max-width: 39rem;
+  margin-top: 1rem;
+  font-size: clamp(0.94rem, 1.5vw, 1.06rem);
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .matchmaking-truth {
+  margin-top: 1.35rem;
+  padding: 0.55rem 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: 99px;
+  background: var(--fill);
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .matchmaking-live-dot {
+  position: relative;
+  flex: none;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .matchmaking-live-dot::after {
+  position: absolute;
+  inset: -4px;
+  border: 1px solid var(--accent);
+  border-radius: inherit;
+  content: "";
+  animation: matchmaking-pulse 2.4s ease-out infinite;
+}
+
+@keyframes matchmaking-pulse {
+  0% { opacity: 0.65; transform: scale(0.65); }
+  100% { opacity: 0; transform: scale(1.8); }
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .matchmaking-radar {
+  width: min(100%, 390px);
+  min-height: 285px;
+  justify-self: center;
+  overflow: visible;
+  background:
+    radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--violet) 20%, transparent), transparent 25%),
+    radial-gradient(ellipse, color-mix(in srgb, var(--cyan) 11%, transparent), transparent 68%);
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .radar-grid {
+  position: absolute;
+  inset: 8%;
+  border: 1px solid color-mix(in srgb, var(--line-2) 55%, transparent);
+  border-radius: 50%;
+  background:
+    linear-gradient(90deg, transparent calc(50% - 0.5px), var(--line) 50%, transparent calc(50% + 0.5px)),
+    linear-gradient(transparent calc(50% - 0.5px), var(--line) 50%, transparent calc(50% + 0.5px));
+  mask-image: radial-gradient(circle, #000 20%, transparent 76%);
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .radar-orbit-outer {
+  width: 220px;
+  border-color: color-mix(in srgb, var(--violet) 42%, var(--line-2));
+  box-shadow: 0 0 46px -30px var(--violet);
+  animation-duration: 24s;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .radar-orbit-inner {
+  width: 154px;
+  border-style: solid;
+  border-color: color-mix(in srgb, var(--cyan) 42%, var(--line-2));
+  opacity: 0.7;
+  animation: matchmaking-counter-orbit 18s linear infinite;
+}
+
+@keyframes matchmaking-counter-orbit {
+  to { transform: rotate(-360deg); }
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .radar-orbit-outer i {
+  top: 31px;
+  right: 18px;
+  width: 10px;
+  height: 10px;
+  box-shadow: 0 0 0 5px var(--accent-bg), 0 0 18px var(--accent);
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .radar-core {
+  width: 118px;
+  border-color: color-mix(in srgb, var(--violet) 50%, var(--line-2));
+  background:
+    radial-gradient(circle at 35% 25%, color-mix(in srgb, var(--violet) 25%, transparent), transparent 58%),
+    linear-gradient(145deg, var(--panel-2), var(--panel));
+  box-shadow: 0 0 0 8px color-mix(in srgb, var(--violet) 7%, transparent), 0 0 55px color-mix(in srgb, var(--violet) 32%, transparent);
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .radar-core > span {
+  font-size: 1.4rem;
+  text-shadow: 0 0 22px var(--violet);
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .radar-core b {
+  font-size: 0.64rem;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .radar-core small {
+  font-size: 0.54rem;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .radar-chip {
+  padding: 0.4rem 0.65rem;
+  border-color: var(--line-2);
+  background: color-mix(in srgb, var(--panel) 88%, transparent);
+  backdrop-filter: blur(12px);
+  font-size: 0.67rem;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .radar-chip-problem {
+  top: 10%;
+  left: 0;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .radar-chip-skill {
+  top: 15%;
+  right: -2%;
+  color: var(--cyan-t);
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .radar-chip-fit {
+  right: 2%;
+  bottom: 7%;
+  color: var(--violet-t);
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .radar-signal {
+  position: absolute;
+  z-index: 1;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 0 5px var(--cyan-bg), 0 0 18px var(--cyan);
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .radar-signal-one {
+  top: 32%;
+  left: 28%;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .radar-signal-two {
+  right: 25%;
+  bottom: 28%;
+  background: var(--pink);
+  box-shadow: 0 0 0 5px var(--pink-bg), 0 0 18px var(--pink);
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .matchmaking-flow {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 32px minmax(0, 1fr) 32px minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(0.45rem, 1.4vw, 1.1rem);
+  margin: 0.45rem 0 1.6rem;
+  padding: 1rem clamp(0.7rem, 1.7vw, 1.2rem);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: color-mix(in srgb, var(--fill) 72%, transparent);
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .matchmaking-flow > i {
+  height: 1px;
+  background: linear-gradient(90deg, var(--violet), var(--cyan));
+  opacity: 0.5;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .matchmaking-flow-step {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .matchmaking-flow-step > span {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  flex: none;
+  place-items: center;
+  border: 1px solid color-mix(in srgb, var(--violet) 42%, var(--line));
+  border-radius: 11px;
+  background: color-mix(in srgb, var(--violet) 10%, var(--panel));
+  color: var(--violet-t);
+  font: 700 0.72rem var(--f-head);
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .matchmaking-flow-step div {
+  display: grid;
+  min-width: 0;
+  line-height: 1.35;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .matchmaking-flow-step b {
+  font: 600 0.8rem var(--f-head);
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .matchmaking-flow-step small {
+  margin-top: 0.15rem;
+  color: var(--dim);
+  font-size: 0.69rem;
+  line-height: 1.4;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .matchmaking-prompt-head {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  margin-bottom: 0.65rem;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .matchmaking-prompt-head label {
+  font: 650 clamp(1rem, 2vw, 1.2rem) var(--f-head);
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .matchmaking-prompt-head > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--dim);
+  font-size: 0.72rem;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .matchmaking-prompt-head .matchmaking-live-dot {
+  width: 6px;
+  height: 6px;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .ai-panel textarea {
+  min-height: 142px;
+  margin-top: 0;
+  padding: 1.05rem 1.15rem;
+  border-color: var(--line-2);
+  border-radius: 17px;
+  background: color-mix(in srgb, var(--bg) 54%, var(--panel));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.025);
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .ai-panel textarea:focus-visible {
+  border-color: var(--violet);
+  outline-color: color-mix(in srgb, var(--violet) 24%, transparent);
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .matchmaking-input-help {
+  font-size: 0.77rem;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) #examples .pill {
+  min-height: 36px;
+  border-color: var(--line);
+  background: var(--fill);
+  font-size: 0.78rem;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) #examples .pill::before {
+  margin-inline-end: 0.4rem;
+  color: var(--violet-t);
+  content: "✦";
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) #mtGo {
+  min-height: 48px;
+  border: 1px solid color-mix(in srgb, var(--cyan) 40%, transparent);
+  background: linear-gradient(112deg, #704bff, #4267ef 58%, #168ba9);
+  box-shadow: 0 8px 28px -16px var(--cyan), inset 0 1px 0 rgba(255,255,255,0.22);
+  font-weight: 700;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) #mtGo:hover:not(:disabled) {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) #mtGo:disabled {
+  filter: saturate(0.7);
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .think {
+  border-color: color-mix(in srgb, var(--violet) 28%, var(--line));
+  background:
+    radial-gradient(ellipse at 0 0, color-mix(in srgb, var(--violet) 11%, transparent), transparent 55%),
+    var(--panel);
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .recommended-heading {
+  padding: 0.8rem 0 0.25rem;
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .recommended-heading h2 {
+  font-size: clamp(1.45rem, 3vw, 2rem);
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .match {
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  padding: clamp(1rem, 2vw, 1.4rem);
+  border-color: color-mix(in srgb, var(--violet) 18%, var(--line));
+  background:
+    radial-gradient(ellipse at 100% 0, color-mix(in srgb, var(--violet) 9%, transparent), transparent 55%),
+    linear-gradient(145deg, var(--panel-2), var(--panel));
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .match:hover {
+  border-color: color-mix(in srgb, var(--cyan) 48%, var(--line-2));
+  box-shadow: 0 14px 36px -30px var(--cyan);
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .analysis-card {
+  border-color: color-mix(in srgb, var(--cyan) 25%, var(--line));
+  background:
+    radial-gradient(ellipse at 100% 0, color-mix(in srgb, var(--cyan) 8%, transparent), transparent 50%),
+    linear-gradient(145deg, var(--panel-2), var(--panel));
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .ex-market {
+  margin-top: 2rem;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--panel) 76%, transparent);
+}
+
+body:is([data-page="user-matchmaking"], [data-page="experts"]) .ex-market .section-head h2 {
+  letter-spacing: -0.045em;
+}
+
+@media (max-width: 760px) {
+  body:is([data-page="user-matchmaking"], [data-page="experts"]) .matchmaking-intro {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.5rem;
+  }
+
+  body:is([data-page="user-matchmaking"], [data-page="experts"]) .matchmaking-copy {
+    max-width: none;
+  }
+
+  body:is([data-page="user-matchmaking"], [data-page="experts"]) .matchmaking-intro h2 {
+    max-width: 16ch;
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+
+  body:is([data-page="user-matchmaking"], [data-page="experts"]) .matchmaking-radar {
+    min-height: 250px;
+  }
+}
+
+@media (max-width: 560px) {
+  body:is([data-page="user-matchmaking"], [data-page="experts"]) .matchmaking-flow {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.75rem;
+    padding: 0.9rem;
+  }
+
+  body:is([data-page="user-matchmaking"], [data-page="experts"]) .matchmaking-flow > i {
+    width: 1px;
+    height: 14px;
+    margin-inline-start: 17px;
+    background: linear-gradient(var(--violet), var(--cyan));
+  }
+
+  body:is([data-page="user-matchmaking"], [data-page="experts"]) .matchmaking-flow-step small {
+    font-size: 0.72rem;
+  }
+
+  body:is([data-page="user-matchmaking"], [data-page="experts"]) .matchmaking-prompt-head {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  body:is([data-page="user-matchmaking"], [data-page="experts"]) .matchmaking-radar {
+    min-height: 225px;
+  }
+
+  body:is([data-page="user-matchmaking"], [data-page="experts"]) .radar-orbit-outer {
+    width: 185px;
+  }
+
+  body:is([data-page="user-matchmaking"], [data-page="experts"]) .radar-orbit-inner {
+    width: 132px;
+  }
+
+  body:is([data-page="user-matchmaking"], [data-page="experts"]) .radar-chip-problem {
+    left: -0.25rem;
+  }
+
+  body:is([data-page="user-matchmaking"], [data-page="experts"]) .radar-chip-skill {
+    right: -0.25rem;
+  }
+
+  body:is([data-page="user-matchmaking"], [data-page="experts"]) .ex-market {
+    padding: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body:is([data-page="user-matchmaking"], [data-page="experts"]) .matchmaking-live-dot::after,
+  body:is([data-page="user-matchmaking"], [data-page="experts"]) .radar-orbit-inner,
+  body:is([data-page="user-matchmaking"], [data-page="experts"]) #mtGo:hover:not(:disabled) {
+    animation: none;
+    transition: none;
+    transform: none;
+  }
+}
